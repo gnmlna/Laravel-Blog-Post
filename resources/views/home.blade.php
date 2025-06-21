@@ -9,6 +9,11 @@
 
     @auth
     <p>Welcome, you are logged in</p>
+    <form method="POST" action="/logout" style="display: inline;">
+        @csrf
+        <button>Logout</button>
+    </form> 
+
     @else
     <div style="text-align: center; margin-top: 50px;">
         <h1>Register</h1>
@@ -27,6 +32,22 @@
                 <input type="password" id="password" name="password" required>
             </div>
             <button type="submit">Register</button>
+        </form>
+    </div>
+    <div style="text-align: center; margin-top: 50px;">
+        <h1>Login</h1>
+        <form method="POST" action="/login" style="display: inline-block; text-align: left;">
+            @csrf
+            <div style="margin-bottom: 15px;">
+                <label for="name">Name:</label><br>
+                <input type="text" id="loginname" name="loginname" required>
+            </div>
+           
+            <div style="margin-bottom: 15px;">
+                <label for="password">Password:</label><br>
+                <input type="password" id="loginpassword" name="loginpassword" required>
+            </div>
+            <button type="submit">Login</button>
         </form>
     </div>
     @endauth
